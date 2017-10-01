@@ -4,7 +4,7 @@ from random import randint
 from time import sleep
 from SnakeModel import Snake
 import threading
-from signal import pause,resume
+from signal import resume, pause
 import sys
 
 #SenseHat instance
