@@ -3,7 +3,7 @@ import atexit
 from random import randint
 from time import sleep
 from SnakeModel import Snake
-from apscheduler.scheduler import Scheduler
+from apscheduler.schedulers import Scheduler
 
 #SenseHat instance
 sense = SenseHat()
