@@ -14,7 +14,7 @@ food = [1,1]
 
 score = 0
 
-t = threading.Timer(1.0,move)
+t = threading.Timer(1.0,move())
 t.daemon = True
 
 def set_up_variables():
