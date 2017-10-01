@@ -4,7 +4,7 @@ from random import randint
 from time import sleep
 from SnakeModel import Snake
 import threading
-from signal import pause
+from signal import pause,resume
 import sys
 
 #SenseHat instance
@@ -41,7 +41,7 @@ def game_over():
     global score 
     sense.show_message("Game over, your score = %s" % score)
     sys.exit()
-    exit()
+    resume()
 
 
 def move():
