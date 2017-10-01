@@ -14,8 +14,8 @@ food = [1,1]
 
 score = 0
 
-t = threading.Timer(1.0,move())
-t.daemon = True
+t = None
+
 
 def set_up_variables():
     
@@ -25,6 +25,8 @@ def set_up_variables():
     sense.stick.direction_left = go_left
     sense.stick.direction_right = go_right
 
+    t = threading.Timer(1.0,move)
+    t.daemon = True
 
     atexit.register(exint_handler)
 
@@ -298,4 +300,5 @@ def go_left(event):
     #Change direction to Left
     snake.direction = 4
 
+set_up_variables()
 start_game()
