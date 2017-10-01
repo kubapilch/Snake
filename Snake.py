@@ -83,7 +83,7 @@ def move():
             #Check if snake ate food
             if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
-                print(last_position)
+                print("Food pos %s " % last_position)
                 snake.positions += last_position
 
                 score += 1
