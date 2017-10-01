@@ -213,6 +213,8 @@ def move():
         #Set new layout
         layout()
 
+        t.start()
+
 def random_food():
     global snake,food
 
