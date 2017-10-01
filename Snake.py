@@ -291,14 +291,3 @@ def go_left(event):
     snake.direction = 4
 
 start_game()
-
-
-# 1.Postaw węża i losuj pierwszą malinkę
-# 2.Ruszaj węża co 0.5s
-# 3.Sprawdzaj czy nie wleciał w śianę albo nie zjadł malinki albo nie wjevahł w siebie
-# 4.1.Jeżeli w ścianę lub w siebie to Game Over
-# 4.2.Jeżeli malinka to losuj nową i wydłuż węża
-# 5.Jeżeli rusza się dalej to
-# 5.1.Sprawdź kierunek i zmień wszystkie wartości w tablicy positions
-# 5.2.Wyczyść ekran
-# 5.3Rozmieńś nowe pola według tablicy postiions
