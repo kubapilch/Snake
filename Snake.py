@@ -234,8 +234,8 @@ def start_game():
     layout()
 
     #Start the game
-    #move()
-    t.start()
+    move()
+    #t.start()
 
 def layout():
     global snake,food
