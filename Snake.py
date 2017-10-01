@@ -83,15 +83,12 @@ def move():
             #Check if snake ate food
             if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
-                print("Food pos %s " % last_position)
-                snake.positions += [[last_position[0],last_position[1]]]
-
-                print(snake.positions)
+                snake.positions += [last_position]
 
                 score += 1
 
                 #Random new food
-                random_food
+                random_food()
 
         #If snake direction is Right
         if snake.direction == 2:
@@ -127,12 +124,12 @@ def move():
             #Check if snake ate food
             if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
-                snake.positions += last_position
+                snake.positions += [last_position]
 
                 score += 1
 
                 #Random new food
-                random_food
+                random_food()
 
         #If snake direction is Down
         if snake.direction == 3:
@@ -168,12 +165,12 @@ def move():
             #Check if snake ate food
             if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
-                snake.positions += last_position
+                snake.positions += [last_position]
 
                 score += 1
 
                 #Random new food
-                random_food
+                random_food()
 
         #If snake direction is Left
         if snake.direction == 4:
@@ -209,12 +206,12 @@ def move():
             #Check if snake ate food
             if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
-                snake.positions += last_position
+                snake.positions += [last_position]
 
                 score += 1
 
                 #Random new food
-                random_food
+                random_food()
 
         #Set new layout
         layout()
