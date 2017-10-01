@@ -3,6 +3,7 @@ import atexit
 from random import randint
 from time import sleep
 from SnakeModel import Snake
+from apscheduler.scheduler import Scheduler
 
 #SenseHat instance
 sense = SenseHat()
@@ -12,6 +13,9 @@ snake = Snake()
 food = [1,1]
 
 score = 0
+
+sched = Scheduler()
+sched.start()
 
 def set_up_variables():
     
@@ -50,6 +54,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y < 1 or [head_x,head_y - 1] in snake.positions:
                 game_over()
+                sched.shutdown()
                 return
 
             #Move snake in array
@@ -89,6 +94,7 @@ def move():
             #Check if next postion         
             if head_x > 6 or [head_x + 1,head_y] in snake.positions:
                 game_over()
+                sched.shutdown()
                 return
 
             #Move snake in array
@@ -128,6 +134,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y > 6 or [head_x,head_y + 1] in snake.positions:
                 game_over()
+                sched.shutdown()
                 return
 
             #Move snake in array
@@ -167,6 +174,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_x < 1 or [head_x - 1,head_y] in snake.positions:
                 game_over()
+                sched.shutdown()
                 return
 
             #Move snake in array
@@ -203,9 +211,6 @@ def move():
         #Set new layout
         layout()
 
-        #Wait 
-        sleep(0.5)
-
 def random_food():
     global snake,food
 
@@ -224,8 +229,7 @@ def start_game():
     #Set up first layout
     layout()
 
-    #Start the game
-    move()
+    sched.add_interval_job(move, seconds = 1)
 
 def layout():
     global snake,food
