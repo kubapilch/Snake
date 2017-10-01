@@ -252,6 +252,8 @@ def layout():
 
         sense.set_pixel(x,y,color)
 
+        checker += 1
+
     #Layout food
     sense.set_pixel(food[0],food[1],255,0,0)
 
