@@ -18,7 +18,8 @@ t = None
 
 
 def set_up_variables():
-    
+    global t,sense
+
     #Set joystick functions
     sense.stick.direction_up = go_up
     sense.stick.direction_down = go_down
