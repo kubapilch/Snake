@@ -44,8 +44,6 @@ def game_over():
 def move():
         global snake,food,score,t
 
-        t.start()
-
         head_x = snake.positions[0][0]
         head_y = snake.positions[0][1]
 
@@ -234,7 +232,8 @@ def start_game():
     layout()
 
     #Start the game
-    move()
+    #move()
+    t.start()
 
 def layout():
     global snake,food
