@@ -39,7 +39,7 @@ def exint_handler():
 def game_over():
     global pas,score 
     sense.show_message("Game over, your score = %s" % score)
-    sys.exit()
+    sys.exit(0)
     pas.signal.resume()
 
 
