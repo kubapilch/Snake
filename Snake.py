@@ -37,10 +37,9 @@ def exint_handler():
     sense.clear()
 
 def game_over():
-    global pas,score 
+    global did_finish,pas,score 
     sense.show_message("Game over, your score = %s" % score)
-    sys.exit(0)
-    pas.signal.resume()
+    did_finish = True
 
 
 def move():
@@ -61,7 +60,6 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y < 1 or [head_x,head_y - 1] in snake.positions:
                 game_over()
-                did_finish = True
                 return
 
             #Move snake in array
@@ -101,7 +99,6 @@ def move():
             #Check if next postion         
             if head_x > 6 or [head_x + 1,head_y] in snake.positions:
                 game_over()
-                did_finish = True
                 return
 
             #Move snake in array
@@ -141,7 +138,6 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y > 6 or [head_x,head_y + 1] in snake.positions:
                 game_over()
-                did_finish = True
                 return
 
             #Move snake in array
@@ -181,7 +177,6 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_x < 1 or [head_x - 1,head_y] in snake.positions:
                 game_over()
-                did_finish = True
                 return
 
             #Move snake in array
@@ -233,6 +228,7 @@ def random_food():
         food = [x,y]
 
 def start_game():
+    global did_finish
 
     #random first food
     random_food()
@@ -242,7 +238,12 @@ def start_game():
 
     #Start the game
     move()
-    #t.start()
+    
+    while True:
+        if did_finish:
+            break
+        sleep(0.1)
+
 
 def layout():
     global snake,food
@@ -312,6 +313,4 @@ def go_left(event):
 
 set_up_variables()
 start_game()
-
-pas = signal.pause()
 
