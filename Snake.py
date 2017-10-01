@@ -86,6 +86,8 @@ def move():
                 print("Food pos %s " % last_position)
                 snake.positions += [last_position[0],last_position[1]]
 
+                print(snake.positions)
+
                 score += 1
 
                 #Random new food
