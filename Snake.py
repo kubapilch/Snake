@@ -254,6 +254,7 @@ def layout():
     #Layout new snake positions
     for i in snake.positions:
         #X pos
+        print(i)
         x = i[0]
 
         #Y pos
