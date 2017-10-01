@@ -17,7 +17,6 @@ score = 0
 
 t = None
 
-
 def set_up_variables():
     global t,sense
 
@@ -57,6 +56,7 @@ def move():
             if head_y < 1 or [head_x,head_y - 1] in snake.positions:
                 game_over()
                 t.cancel()
+                threading.Timer.cancel()
                 return
 
             #Move snake in array
@@ -97,6 +97,7 @@ def move():
             if head_x > 6 or [head_x + 1,head_y] in snake.positions:
                 game_over()
                 t.cancel()
+                threading.Timer.cancel()
                 return
 
             #Move snake in array
@@ -137,6 +138,7 @@ def move():
             if head_y > 6 or [head_x,head_y + 1] in snake.positions:
                 game_over()
                 t.cancel()
+                threading.Timer.cancel()
                 return
 
             #Move snake in array
@@ -177,6 +179,7 @@ def move():
             if head_x < 1 or [head_x - 1,head_y] in snake.positions:
                 game_over()
                 t.cancel()
+                threading.Timer.cancel()
                 return
 
             #Move snake in array
@@ -213,7 +216,9 @@ def move():
         #Set new layout
         layout()
 
-        t.start()
+        threading.Timer(1.0,move)
+
+        #t.start()
 
 def random_food():
     global snake,food
