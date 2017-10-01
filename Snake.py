@@ -4,7 +4,7 @@ from random import randint
 from time import sleep
 from SnakeModel import Snake
 import threading
-from signal import resume, pause
+import signal
 import sys
 
 #SenseHat instance
@@ -19,16 +19,13 @@ score = 0
 did_finish = False
 
 def set_up_variables():
-    global t,sense
+    global sense
 
     #Set joystick functions
     sense.stick.direction_up = go_up
     sense.stick.direction_down = go_down
     sense.stick.direction_left = go_left
     sense.stick.direction_right = go_right
-
-    t = threading.Timer(1.0,move)
-    t.daemon = True
 
     atexit.register(exint_handler)
 
@@ -41,7 +38,7 @@ def game_over():
     global score 
     sense.show_message("Game over, your score = %s" % score)
     sys.exit()
-    resume()
+    signal.resume()
 
 
 def move():
@@ -314,5 +311,5 @@ def go_left(event):
 set_up_variables()
 start_game()
 
-pause()
+signal.pause()
 
