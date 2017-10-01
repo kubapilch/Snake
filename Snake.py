@@ -4,6 +4,7 @@ from random import randint
 from time import sleep
 from SnakeModel import Snake
 import threading
+from signal import pause
 
 #SenseHat instance
 sense = SenseHat()
@@ -303,3 +304,6 @@ def go_left(event):
 
 set_up_variables()
 start_game()
+
+pause()
+
