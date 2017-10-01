@@ -3,7 +3,7 @@ import atexit
 from random import randint
 from time import sleep
 from SnakeModel import Snake
-from apscheduler.schedulers import Scheduler
+from apscheduler.schedulers import BackgroundScheduler
 
 #SenseHat instance
 sense = SenseHat()
@@ -14,7 +14,7 @@ food = [1,1]
 
 score = 0
 
-sched = Scheduler()
+sched = BackgroundScheduler()
 sched.start()
 
 def set_up_variables():
