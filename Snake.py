@@ -53,7 +53,7 @@ def move():
                 return
 
             #Move snake in array
-            for i in snake.postions:
+            for i in snake.positions:
                 #If its head
                 if checker == 0:
                     last_position = i
