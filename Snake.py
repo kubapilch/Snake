@@ -3,7 +3,7 @@ import atexit
 from random import randint
 from time import sleep
 from SnakeModel import Snake
-from apscheduler.schedulers import BackgroundScheduler
+import threading
 
 #SenseHat instance
 sense = SenseHat()
@@ -14,8 +14,8 @@ food = [1,1]
 
 score = 0
 
-sched = BackgroundScheduler()
-sched.start()
+t = threading.Timer(1.0,move)
+t.daemon = True
 
 def set_up_variables():
     
@@ -38,9 +38,9 @@ def game_over():
     print("Game over, your score = %s" % score)
 
 def move():
-    global snake,food,score
+        global snake,food,score,t
 
-    while True:
+        t.start()
 
         head_x = snake.positions[0][0]
         head_y = snake.positions[0][1]
@@ -54,7 +54,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y < 1 or [head_x,head_y - 1] in snake.positions:
                 game_over()
-                sched.shutdown()
+                t.cancel()
                 return
 
             #Move snake in array
@@ -94,7 +94,7 @@ def move():
             #Check if next postion         
             if head_x > 6 or [head_x + 1,head_y] in snake.positions:
                 game_over()
-                sched.shutdown()
+                t.cancel()
                 return
 
             #Move snake in array
@@ -134,7 +134,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y > 6 or [head_x,head_y + 1] in snake.positions:
                 game_over()
-                sched.shutdown()
+                t.cancel()
                 return
 
             #Move snake in array
@@ -174,7 +174,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_x < 1 or [head_x - 1,head_y] in snake.positions:
                 game_over()
-                sched.shutdown()
+                t.cancel()
                 return
 
             #Move snake in array
@@ -229,7 +229,8 @@ def start_game():
     #Set up first layout
     layout()
 
-    sched.add_interval_job(move, seconds = 1)
+    #Start the game
+    move()
 
 def layout():
     global snake,food
