@@ -2,6 +2,7 @@ from sense_hat import ACTION_RELEASED,SenseHat, ACTION_HELD
 import atexit
 from random import randint
 from time import sleep
+from SnakeModel import Snake
 
 #SenseHat instance
 sense = SenseHat()
