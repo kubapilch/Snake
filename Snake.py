@@ -261,7 +261,7 @@ def go_up(event):
         return
 
     #Chenge direction to Up
-     snake.direction = 1
+    snake.direction = 1
 
 def go_right(event):
     global snake
