@@ -216,7 +216,7 @@ def move():
         #Set new layout
         layout()
 
-        threading.Timer(1.0,move)
+        threading.Timer(1.0,move).start()
 
         #t.start()
 
@@ -240,7 +240,6 @@ def start_game():
 
     #Start the game
     move()
-    threading.Timer(1.0,move)
     #t.start()
 
 def layout():
