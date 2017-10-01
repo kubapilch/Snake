@@ -5,6 +5,7 @@ from time import sleep
 from SnakeModel import Snake
 import threading
 from signal import pause
+import sys
 
 #SenseHat instance
 sense = SenseHat()
@@ -14,6 +15,8 @@ snake = Snake()
 food = [1,1]
 
 score = 0
+
+did_finish = False
 
 t = None
 
@@ -38,10 +41,15 @@ def exint_handler():
 
 def game_over():
     global score 
-    print("Game over, your score = %s" % score)
+    sense.show_message("Game over, your score = %s" % score)
+    sys.exit()
+
 
 def move():
         global snake,food,score,t
+
+        if did_finish:
+            return
 
         head_x = snake.positions[0][0]
         head_y = snake.positions[0][1]
@@ -55,8 +63,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y < 1 or [head_x,head_y - 1] in snake.positions:
                 game_over()
-                t.cancel()
-                threading.Timer.cancel()
+                did_finish = True
                 return
 
             #Move snake in array
@@ -96,8 +103,7 @@ def move():
             #Check if next postion         
             if head_x > 6 or [head_x + 1,head_y] in snake.positions:
                 game_over()
-                t.cancel()
-                threading.Timer.cancel()
+                did_finish = True
                 return
 
             #Move snake in array
@@ -137,8 +143,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_y > 6 or [head_x,head_y + 1] in snake.positions:
                 game_over()
-                t.cancel()
-                threading.Timer.cancel()
+                did_finish = True
                 return
 
             #Move snake in array
@@ -178,8 +183,7 @@ def move():
             #Check if next postion isnt wall or snake tail
             if head_x < 1 or [head_x - 1,head_y] in snake.positions:
                 game_over()
-                t.cancel()
-                threading.Timer.cancel()
+                did_finish = True
                 return
 
             #Move snake in array
