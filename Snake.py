@@ -240,6 +240,7 @@ def start_game():
 
     #Start the game
     move()
+    threading.Timer(1.0,move)
     #t.start()
 
 def layout():
