@@ -18,8 +18,6 @@ score = 0
 
 did_finish = False
 
-t = None
-
 def set_up_variables():
     global t,sense
 
@@ -46,7 +44,7 @@ def game_over():
 
 
 def move():
-        global snake,food,score,t
+        global snake,food,score,did_finish
 
         if did_finish:
             return
@@ -258,7 +256,6 @@ def layout():
     #Layout new snake positions
     for i in snake.positions:
         #X pos
-        print(i)
         x = i[0]
 
         #Y pos
