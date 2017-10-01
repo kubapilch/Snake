@@ -18,6 +18,8 @@ score = 0
 
 did_finish = False
 
+pas = None
+
 def set_up_variables():
     global sense
 
@@ -35,10 +37,10 @@ def exint_handler():
     sense.clear()
 
 def game_over():
-    global score 
+    global pas,score 
     sense.show_message("Game over, your score = %s" % score)
     sys.exit()
-    signal.resume()
+    pas.signal.resume()
 
 
 def move():
@@ -311,5 +313,5 @@ def go_left(event):
 set_up_variables()
 start_game()
 
-signal.pause()
+pas = signal.pause()
 
