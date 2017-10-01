@@ -74,7 +74,7 @@ def move():
                 checker += 1
 
             #Check if snake ate food
-            if food == snake.postions[0]:
+            if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
                 snake.positions += last_position
 
@@ -92,7 +92,7 @@ def move():
                 return
 
             #Move snake in array
-            for i in snake.postions:
+            for i in snake.positions:
                 #If its head
                 if checker == 0:
                     last_position = i
@@ -113,7 +113,7 @@ def move():
                 checker += 1
 
             #Check if snake ate food
-            if food == snake.postions[0]:
+            if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
                 snake.positions += last_position
 
@@ -131,7 +131,7 @@ def move():
                 return
 
             #Move snake in array
-            for i in snake.postions:
+            for i in snake.positions:
                 #If its head
                 if checker == 0:
                     last_position = i
@@ -152,7 +152,7 @@ def move():
                 checker += 1
 
             #Check if snake ate food
-            if food == snake.postions[0]:
+            if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
                 snake.positions += last_position
 
@@ -170,7 +170,7 @@ def move():
                 return
 
             #Move snake in array
-            for i in snake.postions:
+            for i in snake.positions:
                 #If its head
                 if checker == 0:
                     last_position = i
@@ -191,7 +191,7 @@ def move():
                 checker += 1
 
             #Check if snake ate food
-            if food == snake.postions[0]:
+            if food == snake.positions[0]:
                 #Snake has eaten food so add new elemnt to snake 
                 snake.positions += last_position
 
@@ -236,7 +236,7 @@ def layout():
     #incrementation checker
     checker = 0
 
-    #Layout new snake postions 
+    #Layout new snake positions
     for i in snake.positions:
         #X pos
         x = i[0]
