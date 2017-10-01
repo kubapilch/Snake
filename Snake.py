@@ -41,6 +41,7 @@ def game_over():
     global score 
     sense.show_message("Game over, your score = %s" % score)
     sys.exit()
+    exit()
 
 
 def move():
